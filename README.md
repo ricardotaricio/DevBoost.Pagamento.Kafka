@@ -1,4 +1,4 @@
-# DevBoost.dronedelivery.microservices
+# DevBoost Drone Delivery
 
 **GRUPO 1**
 
@@ -9,12 +9,5 @@
 
 
 
-*Consultar API's disponíveis via Swagger.*
-
-Usuário pré-cadastrado no banco de dados pra viabilizar o cadastro de drones:
-* username: admin
-* senha: 1234
-
-**Solutions:**
-* src\DevBoost.DroneDelivery.sln
-* src\DevBoost.DroneDelivery.Pagamento\DevBoost.DroneDelivery.Pagamento.sln
+# Kafka 
+  [- Montar setup Kafka]( https://docs.confluent.io/current/quickstart/ce-docker-quickstart.html?utm_medium=sem&utm_source=google&utm_campaign=ch.sem_br.nonbrand_tp.prs_tgt.kafka_mt.xct_rgn.latam_lng.eng_dv.all&utm_term=kafka%20docker&creative=&device=c&placement=&gclid=CjwKCAjw19z6BRAYEiwAmo64LWb_3nIyCcius4hDu1jX6mmhkL3LVEsBVTOlZA3r48SHQHowEVh1iRoCacsQAvD_BwE)
