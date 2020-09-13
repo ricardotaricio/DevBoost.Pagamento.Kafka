@@ -1,0 +1,40 @@
+{
+	"info": {
+		"_postman_id": "6f816167-7fab-49a7-a196-bdd7c32a4a0d",
+		"name": "KAFKA",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "produtor",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/vnd.kafka.json.v2+json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"records\": [\r\n   {\"key\":\"\",\"value\":{\r\n  \"peso\": 12,\r\n  \"numeroCartao\": \"23132132132\",\r\n  \"bandeira\": \"master\",\r\n  \"mesVencimento\": 12,\r\n  \"anoVencimento\": 0,\r\n  \"valor\": 0.0\r\n}\r\n}   \r\n  ]\r\n}\r\n"
+				},
+				"url": {
+					"raw": "http://localhost:8082/topics/pedidoteste",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"topics",
+						"pedidoteste"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
