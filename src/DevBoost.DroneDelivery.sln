@@ -1,0 +1,101 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30413.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - Presentation", "0 - Presentation", "{8603D09F-74A0-4ECD-9A63-D3BB5259E3CC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Application", "1 - Application", "{26E084C8-A857-48A0-9FAC-5CCF7CE97F35}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Domain", "2 - Domain", "{1C9FCAC7-66CC-4D5D-AAE0-BF5A920D4CBF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Tests", "4 - Tests", "{E9B7C9DD-4ECD-4BF1-9047-590DFECF3776}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Infrastructure", "3 - Infrastructure", "{636C3A7F-DC81-47AC-97BC-169D49718CFD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevBoost.DroneDelivery.API", "DevBoost.DroneDelivery.API\DevBoost.DroneDelivery.API.csproj", "{9A266EE8-DA7F-44D1-8C33-61C48835C24C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevBoost.DroneDelivery.Infrastructure", "DevBoost.DroneDelivery.Infrastructure\DevBoost.DroneDelivery.Infrastructure.csproj", "{4AC09D10-1D0A-4070-9F66-D1554812DAFA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevBoost.DroneDelivery.Core.Domain", "DevBoost.DroneDelivery.Core.Domain\DevBoost.DroneDelivery.Core.Domain.csproj", "{C9E839E6-7ADA-4D95-8E35-B96EBB20FBC8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevBoost.DroneDelivery.Domain", "DevBoost.DroneDelivery.Domain\DevBoost.DroneDelivery.Domain.csproj", "{51B81B17-93C8-4F1A-A65E-2FA3C78FF192}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevBoost.DroneDelivery.Application", "DevBoost.DroneDelivery.Application\DevBoost.DroneDelivery.Application.csproj", "{D4EC48FE-D5EB-49E9-9851-487213153BB9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevBoost.DroneDelivery.API.Tests", "..\tests\DevBoost.DroneDelivery.API.Tests\DevBoost.DroneDelivery.API.Tests.csproj", "{55FD26C1-95F2-40FF-9AE0-CD277C4E2BDF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevBoost.DroneDelivery.Application.Tests", "..\tests\DevBoost.DroneDelivery.ApplicationI.Tests\DevBoost.DroneDelivery.Application.Tests.csproj", "{0A6F3C79-1090-45C4-925F-3B0C32455996}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevBoost.DroneDelivery.Domain.Tests", "..\tests\DevBoost.DroneDelivery.Domain.Tests\DevBoost.DroneDelivery.Domain.Tests.csproj", "{0133B5FF-1898-481C-B5DB-E26B8A269D74}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevBoost.DroneDelivery.Infrastructure.Tests", "..\tests\DevBoost.DroneDelivery.Infrastructure.Tests\DevBoost.DroneDelivery.Infrastructure.Tests.csproj", "{B3255D7F-BF6F-41B1-8DB8-221D2629F339}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevBoost.DroneDelivery.Features.Test", "..\tests\DevBoost.DroneDelivery.Features.Test\DevBoost.DroneDelivery.Features.Test.csproj", "{440F0E82-8A1C-469E-94FC-3371FDF89023}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9A266EE8-DA7F-44D1-8C33-61C48835C24C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A266EE8-DA7F-44D1-8C33-61C48835C24C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A266EE8-DA7F-44D1-8C33-61C48835C24C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A266EE8-DA7F-44D1-8C33-61C48835C24C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AC09D10-1D0A-4070-9F66-D1554812DAFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AC09D10-1D0A-4070-9F66-D1554812DAFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AC09D10-1D0A-4070-9F66-D1554812DAFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AC09D10-1D0A-4070-9F66-D1554812DAFA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9E839E6-7ADA-4D95-8E35-B96EBB20FBC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9E839E6-7ADA-4D95-8E35-B96EBB20FBC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9E839E6-7ADA-4D95-8E35-B96EBB20FBC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9E839E6-7ADA-4D95-8E35-B96EBB20FBC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51B81B17-93C8-4F1A-A65E-2FA3C78FF192}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51B81B17-93C8-4F1A-A65E-2FA3C78FF192}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51B81B17-93C8-4F1A-A65E-2FA3C78FF192}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51B81B17-93C8-4F1A-A65E-2FA3C78FF192}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4EC48FE-D5EB-49E9-9851-487213153BB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4EC48FE-D5EB-49E9-9851-487213153BB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4EC48FE-D5EB-49E9-9851-487213153BB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4EC48FE-D5EB-49E9-9851-487213153BB9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55FD26C1-95F2-40FF-9AE0-CD277C4E2BDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55FD26C1-95F2-40FF-9AE0-CD277C4E2BDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55FD26C1-95F2-40FF-9AE0-CD277C4E2BDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55FD26C1-95F2-40FF-9AE0-CD277C4E2BDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A6F3C79-1090-45C4-925F-3B0C32455996}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A6F3C79-1090-45C4-925F-3B0C32455996}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A6F3C79-1090-45C4-925F-3B0C32455996}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A6F3C79-1090-45C4-925F-3B0C32455996}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0133B5FF-1898-481C-B5DB-E26B8A269D74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0133B5FF-1898-481C-B5DB-E26B8A269D74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0133B5FF-1898-481C-B5DB-E26B8A269D74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0133B5FF-1898-481C-B5DB-E26B8A269D74}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3255D7F-BF6F-41B1-8DB8-221D2629F339}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3255D7F-BF6F-41B1-8DB8-221D2629F339}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3255D7F-BF6F-41B1-8DB8-221D2629F339}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3255D7F-BF6F-41B1-8DB8-221D2629F339}.Release|Any CPU.Build.0 = Release|Any CPU
+		{440F0E82-8A1C-469E-94FC-3371FDF89023}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{440F0E82-8A1C-469E-94FC-3371FDF89023}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{440F0E82-8A1C-469E-94FC-3371FDF89023}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{440F0E82-8A1C-469E-94FC-3371FDF89023}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9A266EE8-DA7F-44D1-8C33-61C48835C24C} = {8603D09F-74A0-4ECD-9A63-D3BB5259E3CC}
+		{4AC09D10-1D0A-4070-9F66-D1554812DAFA} = {636C3A7F-DC81-47AC-97BC-169D49718CFD}
+		{C9E839E6-7ADA-4D95-8E35-B96EBB20FBC8} = {1C9FCAC7-66CC-4D5D-AAE0-BF5A920D4CBF}
+		{51B81B17-93C8-4F1A-A65E-2FA3C78FF192} = {1C9FCAC7-66CC-4D5D-AAE0-BF5A920D4CBF}
+		{D4EC48FE-D5EB-49E9-9851-487213153BB9} = {26E084C8-A857-48A0-9FAC-5CCF7CE97F35}
+		{55FD26C1-95F2-40FF-9AE0-CD277C4E2BDF} = {E9B7C9DD-4ECD-4BF1-9047-590DFECF3776}
+		{0A6F3C79-1090-45C4-925F-3B0C32455996} = {E9B7C9DD-4ECD-4BF1-9047-590DFECF3776}
+		{0133B5FF-1898-481C-B5DB-E26B8A269D74} = {E9B7C9DD-4ECD-4BF1-9047-590DFECF3776}
+		{B3255D7F-BF6F-41B1-8DB8-221D2629F339} = {E9B7C9DD-4ECD-4BF1-9047-590DFECF3776}
+		{440F0E82-8A1C-469E-94FC-3371FDF89023} = {E9B7C9DD-4ECD-4BF1-9047-590DFECF3776}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E631AD36-6ABF-4B5C-B7A1-C65703E11C4B}
+	EndGlobalSection
+EndGlobal

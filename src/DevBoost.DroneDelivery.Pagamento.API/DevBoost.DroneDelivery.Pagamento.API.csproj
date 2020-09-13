@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.7" />
+    <PackageReference Include="MSBuild.SonarQube.Runner.Tool" Version="4.8.0" />
+    <PackageReference Include="SonarQube.Scanner.DotNetCore.Tool" Version="4.3.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DevBoost.DroneDelivery.Pagamento.Application\DevBoost.DroneDelivery.Pagamento.Application.csproj" />
+    <ProjectReference Include="..\DevBoost.DroneDelivery.Pagamento.Infrastructure\DevBoost.DroneDelivery.Pagamento.Infrastructure.csproj" />
+  </ItemGroup>
+
+
+</Project>
