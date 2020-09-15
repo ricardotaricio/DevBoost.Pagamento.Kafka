@@ -1,12 +1,6 @@
-# DevBoost Drone Delivery
+# DevBoost Pagamento
 
-**GRUPO 1**
-
-* Priscila
-* Odair
-* André
-* Ricardo
-
+Ricardo Camargo Taricio
 
 
 # Kafka 
