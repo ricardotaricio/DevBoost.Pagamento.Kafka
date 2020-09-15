@@ -14,16 +14,19 @@ namespace DevBoost.DroneDelivery.Pagamento.Application.Commands
 {
     public class PagamentoCommandHandler : IRequestHandler<AdicionarPagamentoCartaoCommand, bool>, IRequestHandler<AtualizarSituacaoPagamentoCartaoCommand, bool>
     {
-        private readonly IMediatrHandler _bus;
+        private readonly IMediatrHandler _mediator;
         private readonly IPagamentoRepository _pagamentoRepository;
         private readonly IPagamentoQueries _pagamentoQueries;
         private readonly IMapper _mapper;
-        public PagamentoCommandHandler(IMediatrHandler bus, IPagamentoRepository pagamentoRepository, IPagamentoQueries pagamentoQueries, IMapper mapper)
+        private readonly IBus _bus;
+
+        public PagamentoCommandHandler(IBus bus, IMediatrHandler mediator, IPagamentoRepository pagamentoRepository, IPagamentoQueries pagamentoQueries, IMapper mapper)
         {
-            _bus = bus;
+            _mediator = mediator;
             _pagamentoRepository = pagamentoRepository;
             _pagamentoQueries = pagamentoQueries;
             _mapper = mapper;
+            _bus = bus;
         }
 
         public async Task<bool> Handle(AdicionarPagamentoCartaoCommand message, CancellationToken cancellationToken)
@@ -46,8 +49,12 @@ namespace DevBoost.DroneDelivery.Pagamento.Application.Commands
             
             await _pagamentoRepository.Atualizar(pagamento);
 
-            pagamento.AdicionarEvento(new PagamentoCartaoProcessadoEvent(entityId: pagamento.Id,pagamento.PedidoId, pagamento.Situacao));
-            return await _pagamentoRepository.UnitOfWork.Commit();
+            var evento = new PagamentoCartaoProcessadoEvent(entityId: pagamento.Id, pagamento.PedidoId, pagamento.Situacao);
+            pagamento.AdicionarEvento(evento);
+            var pagamentoAtualizado = await _pagamentoRepository.UnitOfWork.Commit();
+            if (pagamentoAtualizado) await _bus.PublicarEvento<PagamentoCartaoProcessadoEvent>(evento);
+
+            return pagamentoAtualizado;
         }
 
         private bool ValidarComando(Command message)
@@ -56,7 +63,7 @@ namespace DevBoost.DroneDelivery.Pagamento.Application.Commands
 
             foreach (var error in message.ValidationResult.Errors)
             {
-                _bus.PublicarNotificacao(new DomainNotification(message.MessageType, error.ErrorMessage));
+                _mediator.PublicarNotificacao(new DomainNotification(message.MessageType, error.ErrorMessage));
             }
 
             return false;

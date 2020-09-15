@@ -2,6 +2,7 @@
 using DevBoost.DroneDelivery.Core.Domain.Interfaces.Repositories;
 using DevBoost.DroneDelivery.Pagamento.Infrastructure.Data.Extensions;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Query;
 using System.Threading.Tasks;
 
 namespace DevBoost.DroneDelivery.Pagamento.Infrastructure.Data.Contexts
@@ -13,18 +14,18 @@ namespace DevBoost.DroneDelivery.Pagamento.Infrastructure.Data.Contexts
         {
                 
         }
-        private readonly IMediatrHandler _bus;
+        private readonly IMediatrHandler _mediator;
 
-        public BaseDbContext(DbContextOptions options, IMediatrHandler bus) : base(options)
+        public BaseDbContext(DbContextOptions options, IMediatrHandler mediator) : base(options)
         {
-            _bus = bus;
+            _mediator = mediator;
         }
 
         public async Task<bool> Commit()
         {
             var executado = await base.SaveChangesAsync() > 0;
 
-            if (executado) await _bus.PublicarEventos(this);
+            if (executado) await _mediator.PublicarEventos(this);
 
             return executado;
         }

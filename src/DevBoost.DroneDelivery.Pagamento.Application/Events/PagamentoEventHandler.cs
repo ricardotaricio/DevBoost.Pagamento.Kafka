@@ -13,16 +13,16 @@ using System.Threading.Tasks;
 
 namespace DevBoost.DroneDelivery.Pagamento.Application.Events
 {
-    public class PagamentoEventHandler : INotificationHandler<PagamentoCartaoProcessadoEvent>
+    public class PagamentoEventHandler : INotificationHandler<PagamentoCartaoAdicionadoEvent>
     {
         private readonly IPagamentoQueries _pagamentoQueries;
-        private readonly IMediatrHandler _bus;
+        private readonly IMediatrHandler _mediator;
         private readonly IMapper _mapper;
 
-        public PagamentoEventHandler(IPagamentoQueries pagamentoQueries, IMediatrHandler bus, IMapper mapper)
+        public PagamentoEventHandler(IPagamentoQueries pagamentoQueries, IMediatrHandler mediator, IMapper mapper)
         {
             _pagamentoQueries = pagamentoQueries;
-            _bus = bus;
+            _mediator = mediator;
             _mapper = mapper;
         }
 
@@ -43,7 +43,7 @@ namespace DevBoost.DroneDelivery.Pagamento.Application.Events
                 {
                     var objResponse = JsonConvert.DeserializeObject<PagamentoResponseDTO>(await response.Content.ReadAsStringAsync());
                     objResponse.PagamentoId = pagamentoCartao.Id;
-                    await _bus.EnviarComando(_mapper.Map<AtualizarSituacaoPagamentoCartaoCommand>(objResponse));
+                    await _mediator.EnviarComando(_mapper.Map<AtualizarSituacaoPagamentoCartaoCommand>(objResponse));
                 }
             }
         }

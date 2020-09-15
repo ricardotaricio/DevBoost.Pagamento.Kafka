@@ -32,10 +32,11 @@ namespace DevBoost.DroneDelivery.Pagamento.Infrastructure.IOC
             var assembly = AppDomain.CurrentDomain.Load("DevBoost.DroneDelivery.Pagamento.Application");
             services.AddMediatR(assembly);
             services.AddTransient<IMediatrHandler, MediatrHandler>();
+            services.AddTransient<IBus, Bus>();
 
             services.AddScoped<IRequestHandler<AdicionarPagamentoCartaoCommand, bool>, PagamentoCommandHandler>();
             services.AddScoped<IRequestHandler<AtualizarSituacaoPagamentoCartaoCommand, bool>, PagamentoCommandHandler>();
-            services.AddScoped<INotificationHandler<PagamentoCartaoProcessadoEvent>, PagamentoEventHandler>();
+            services.AddScoped<INotificationHandler<PagamentoCartaoAdicionadoEvent>, PagamentoEventHandler>();
             services.AddScoped<IPagamentoQueries, PagamentoQueries>();
 
             services.AddAutoMapper(typeof(DtoToCommandMappingProfile), typeof(CommandToDomainMappingProfile), typeof(ViewModelToCommandMappingProfile), typeof(DomainToDtoMappingProfile));

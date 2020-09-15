@@ -1,7 +1,9 @@
-﻿using KafkaNet;
+﻿using DevBoost.DroneDelivery.Pagamento.Worker.ViewModels;
+using KafkaNet;
 using KafkaNet.Model;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using System;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -9,20 +11,20 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace DevBoost.DroneDelivery.Worker.BackgroundWorker
+namespace DevBoost.DroneDelivery.Pagamento.Worker.BackgroundWorker
 {
-    public class PedidoBackground : BackgroundService
+    public class PagamentoBackground : BackgroundService
     {
-        private readonly ILogger<PedidoBackground> _logger;
+        private readonly ILogger<PagamentoBackground> _logger;
         private KafkaOptions _kafkaOptions;
         private BrokerRouter _brokerRouter;
         private Consumer _consumer;
 
-        public PedidoBackground(ILogger<PedidoBackground> logger)
+        public PagamentoBackground(ILogger<PagamentoBackground> logger)
         {
             _kafkaOptions = new KafkaOptions(new Uri("http://localhost:9092"));
             _brokerRouter = new BrokerRouter(_kafkaOptions);
-            _consumer = new Consumer(new ConsumerOptions("pedidos", _brokerRouter));
+            _consumer = new Consumer(new ConsumerOptions("pagamentos-processados", _brokerRouter));
             _logger = logger;
         }
 
@@ -58,7 +60,18 @@ namespace DevBoost.DroneDelivery.Worker.BackgroundWorker
         {
             foreach (var msg in _consumer.Consume())
                 using (HttpClient client = new HttpClient())
-                    await client.PostAsync("http://localhost:50648/api/pedido", ConvertObjectToByteArrayContent(Encoding.UTF8.GetString(msg.Value)));
+                {
+                    var msgObject = JsonConvert.DeserializeObject<dynamic>(Encoding.UTF8.GetString(msg.Value));
+
+                    var atualizarSituacaoPedidoViewModel = new AtualizarSituacaoPedidoViewModel()
+                    {
+                        PedidoId = msgObject.PedidoId,
+                        PagamentoId = msgObject.EntityId,
+                        SituacaoPagamento = msgObject.SituacaoPagamento
+                    };
+
+                    await client.PatchAsync("http://localhost:50648/api/pedido", ConvertObjectToByteArrayContent(JsonConvert.SerializeObject(atualizarSituacaoPedidoViewModel)));
+                }
         }
     }
 }

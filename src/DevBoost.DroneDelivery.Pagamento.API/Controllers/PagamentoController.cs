@@ -11,12 +11,12 @@ namespace DevBoost.DroneDelivery.Pagamento.API.Controllers
     [ApiController]
     public class PagamentoController : ControllerBase
     {
-        private IMediatrHandler _bus;
+        private IMediatrHandler _mediator;
         private IMapper _mapper;
 
-        public PagamentoController(IMediatrHandler bus, IMapper mapper)
+        public PagamentoController(IMediatrHandler mediator, IMapper mapper)
         {
-            _bus = bus;
+            _mediator = mediator;
             _mapper = mapper;
         }
 
@@ -24,7 +24,7 @@ namespace DevBoost.DroneDelivery.Pagamento.API.Controllers
         public async Task<IActionResult> PagamentoCartaoPost(AdicionarPagamentoCartaoViewModel viewModel)
         {
             // TODO: Verificar como retornar motivo da rejeição do pagamento a partir do service pra não precisar validar aqui, apenas no service.
-            var enviado = await _bus.EnviarComando(_mapper.Map<AdicionarPagamentoCartaoCommand>(viewModel));
+            var enviado = await _mediator.EnviarComando(_mapper.Map<AdicionarPagamentoCartaoCommand>(viewModel));
 
             if (!enviado) return BadRequest();
 
